@@ -1,0 +1,71 @@
+extends layout
+block content
+
+
+    body        
+        form.form-horizontal(method="post",action="mail/send")
+          fieldset
+            center
+              b
+                legend Mail-Client
+            .form-group
+              label.col-lg-2.control-label(for='inputEmail') Email
+              .col-lg-10
+                input#inputEmail.form-control(type='text', placeholder='Email')
+            .form-group
+              label.col-lg-2.control-label(for='inputName') Name
+              .col-lg-10
+                input#inputName.form-control(type='text',name='name', placeholder='Official Name')
+            .form-group
+              label.col-lg-2.control-label Email To 
+              .col-lg-10
+                .radio
+                  label
+                    input#volunteer-1(type='radio', name='volunteers', value='volunteer-1')
+                    |             Ayush Jain
+                  br
+                  label
+                    input#volunteer-2(type='radio', name='volunteers', value='volunteer-2')
+                    |             Sajan Bang
+                  br
+                  label
+                    input#volunteer-3(type='radio', name='volunteers', value='volunteer-3')
+                    |             Vipul Sharma
+                  br
+                  label
+
+            .form-group
+                label.col-lg-2.control-label(for='inputDefault') Send to :
+                .col-lg-10
+                    input#send-to.form-control(type='text',name='volunteer')
+
+            .form-group
+              label.col-lg-2.control-label(for='enrollment-number') Enrollment Number 
+              .col-lg-10
+                input#enrollment-number.form-control(type='text', placeholder='As issued by Jabalpur Engineering College, Jabalpur')
+            .form-group
+              label.col-lg-2.control-label(for='textArea',name='email') Email
+              .col-lg-10
+                textarea#textArea.form-control(rows='15',name='email')
+                span.help-block Kindly proof read it before submitting the mail.
+            .form-group
+              label.col-lg-2.control-label(for='select') Selects
+              .col-lg-10
+                select#select.form-control
+                  option(value='name-not-found') Name not in the list.
+                  option(value='eligibility-criteria') Eligibility criteria.
+                  option(value='identity-card-unavailable') Unavailibility of Identity card
+                  option(value='typo-error') Spelling mistake or any typo related issue.
+                  option(value='others') Others
+                br
+            .form-group
+              label.col-lg-2.control-label(for='inputDefault') Subject
+              .col-lg-10
+                input#subject.form-control(type='text',name='subject')
+            .form-group
+              .col-lg-10.col-lg-offset-2
+                button.btn.btn-default(type='reset') Cancel
+                button.btn.btn-primary(type='submit') Submit
+        script( src="/javascripts/jquery.min.js" )
+        script( src="/javascripts/custom.js" )
+        script( src="/javascripts/bootstrap.js" )
