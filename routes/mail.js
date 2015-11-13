@@ -1,6 +1,13 @@
 var express = require('express');
 var nodemailer = require('nodemailer');
 var router = express.Router();
+var volunteer_mail = {
+    'volunteer-1':'xyz@gmail.com',
+    'volunteer-2':'abc@gmail.com',
+    'volunteer-3':'pqr@gmail.com',
+    'volunteer-4':'qwert@gmail.com',
+    'volunteer-5':'tuvwxy@gmail'
+}
 router.get('/',function(req,res,next){
     res.render('mail', {title:'Email'});
 });
@@ -15,7 +22,7 @@ router.post('/send',function(req,res,next){
     });
     var mailOptions = {
         from: req.body.name,
-        to : req.body.volunteer,
+        to : volunteer_mail[req.body.volunteer.toString()],
         subject: req.body.subject,
         text: req.body.email
     };

@@ -10,8 +10,8 @@ var routes = require('./routes/index');
 var mail = require('./routes/mail');
 var contribute = require('./routes/contribute');
 var help = require('./routes/help');
-
-var app = express();
+var
+ app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
