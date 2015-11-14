@@ -8,6 +8,8 @@ var volunteer_mail = {
     'volunteer-4':'qwert@gmail.com',
     'volunteer-5':'tuvwxy@gmail'
 }
+
+
 router.get('/',function(req,res,next){
     res.render('mail', {title:'Email'});
 });
@@ -22,7 +24,7 @@ router.post('/send',function(req,res,next){
     });
     var mailOptions = {
         from: req.body.name,
-        to : volunteer_mail[req.body.volunteer.toString()],
+        to : volunteer_mail[req.body.volunteer.toString(),
         subject: req.body.subject,
         text: req.body.email
     };
@@ -32,8 +34,12 @@ router.post('/send',function(req,res,next){
             console.log(e);
             res.redirect('/');
         }
-        else {
+        else if(volunteer_mail[req.body.volunteer.toString()]!==undefined)){
             console.log('message-sent');
+            res.redirect('/');
+        }
+        else {
+            console.log('invalid email');
             res.redirect('/');
         }
     });
